@@ -10,28 +10,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container bg-warning">
+    <div class="container bg-warning w-50 p-4 mt-3 rounded">
         <form>
-            <div class="mb-3">
+            <h1 class="text-center">Task Planner App</h1>
+            <div class="my-3">
               <label for="exampleInputName" class="form-label">Name</label>
               <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
               <div id="nameHelp" class="form-text">Please enter your fullname.</div>
             </div>
             <div class="mb-3">
               <label for="exampleInputDescription" class="form-label">Description</label>
-              <input type="description" class="form-control" id="exampleInputDescription">
+              <textarea name="description" class="form-control" id="exampleInputDescription" placeholder="Type items here...."></textarea>
+              <!-- <input type="description" class="form-control" id="exampleInputDescription"> -->
             </div>
             <div class="mb-3">
               <label for="exampleInputAssignee" class="form-label">AssignedTo</label>
-              <input type="Assignee" class="form-control" id="exampleInputAssignee">
+              <input type="text" class="form-control" id="exampleInputAssignee">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">DueDate:</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="date" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Status</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label for="status-code" class="form-label">Status</label>
+              <select name="status-code" id="status-code" class="form-control">
+                <option value="To-Do">To Do</option>
+                <option value="In-Progress">To Progress</option>
+                <option value="Done">Done</option>
+              </select>
+              <!-- <input type="password" class="form-control" id="exampleInputPassword1"> -->
             </div>
           
             <button type="submit" class="btn btn-primary">Save</button>
