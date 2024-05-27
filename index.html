@@ -11,16 +11,16 @@
 </head>
 <body>
     <div class="container bg-warning w-50 p-4 mt-3 rounded">
-        <form action="#" method="POST">
+        <form action="" method="POST">
             <h1 class="text-center">Task Planner App</h1>
            
               <label for="task-name" class="form-label">Name</label>  <br>
               <input type="text" class="form-control" id="task-name" aria-describedby="emailHelp">  <br>
-              <div id="nameHelp" class="form-text">Please enter the task name.</div><br>
+              <!-- <div id="nameHelp" class="form-text">Please enter the task name.</div><br> -->
           
          
               <label for="task-desc" class="form-label">Description</label>  <br>
-              <textarea name="description" class="form-control" id="task-desc" placeholder="Type items here...."></textarea>  <br>
+              <textarea type="text" name="task-desc" class="form-control" id="task-desc" placeholder="Type items here...."></textarea>  <br>
           
            
               <label for="assignee" class="form-label">Assigned To</label>  <br>
@@ -31,21 +31,20 @@
               <input type="date" class="form-control" id="due-date"><br>
         
        
-              <label for="status-code" class="form-label">Status</label>  <br>
+              <label for="status-code" class="form-label">Status</label>  
               <select name="status-code" id="status-code" class="form-control"> 
                 <option value="To-Do">To Do</option>
-                <option value="In-Progress">To Progress</option>
+                <option value="In-Progress">In Progress</option>
                 <option value="Done">Done</option>
               </select> <br>
-        
-       
-            <button type="submit" class="btn btn-primary" id="task-save-btn">Save</button>
+
+            <button type="button" class="btn btn-primary" id="task-save-btn">Save</button>
         </form>
 
       </div>
 
       <!-- task list component -->
-     <div class="container task-list-section bg-primary mt-5 d-flex justify-content-evenly" id="task-list">
+     <div class="container task-list-section w-100 bg-primary mt-5 d-flex justify-content-evenly" id="task-list">
         <div class="task-list-items bg-info text-white m-3 p-3">
             <h2 class="text-center">To Do</h2>
             <div class="card mt-2" style="width: 18rem;">
