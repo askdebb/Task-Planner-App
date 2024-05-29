@@ -22,56 +22,28 @@ const inputStatus = document.getElementById("status-code");
 const saveBtn = document.getElementById("task-save-btn");
 
 saveBtn.addEventListener("click", function () {
-   //Validation logic
-    const nameValue = nameInput.value;
-    const descValue = inputMsg.value;
-    const assigneeValue = inputAssignee.value;
-    const statusValue = inputStatus.value;
-    const dueDateValue = new Date(inputDueDate.value);
-    const currentDate = new Date();
+  //Validation logic
+  const nameValue = nameInput.value;
+  const descValue = inputMsg.value;
+  const assigneeValue = inputAssignee.value;
+  const statusValue = inputStatus.value;
+  const dueDateValue = new Date(inputDueDate.value);
+  const currentDate = new Date();
 
-  // Check if the name contains numbers
-  const nameHasNumbers = /\d/.test(nameValue);
+  //if (nameHasNumbers) {
 
-  // Check if the description is empty
-  const descIsEmpty = descValue.trim() === "";
-
-  // Check if the due date is in the past
-  const dueDateIsPast = dueDateValue < currentDate;
-
-  // Check if the assignee contains special characters
-  const assigneeHasSpecialChars = /[^a-zA-Z\s]/.test(assigneeValue);
-
-  // Check if the status is one of the predefined options
-  const validStatuses = ["To-Do", "In-Progress", "Done"];
-  const statusIsInvalid = !validStatuses.includes(statusValue);
-
-  if (nameHasNumbers) {
-    alert("Task name should not contain numbers.");
-  } else if (descIsEmpty) {
-    alert("Description should not be empty.");
-  } else if (dueDateIsPast) {
-    alert("Due date should not be in the past.");
-  } else if (assigneeHasSpecialChars) {
-    alert("Assignee should not contain special characters.");
-  } else if (statusIsInvalid) {
-    alert(
-      'Status should be one of the predefined options: "To Do", "In Progress", or "Done".'
-    );
-  } else {
-    // Save validated data in the to-do list container
-    toDoList.push({
-      // key : value  <==>  property : value
-      name: nameInput.value,
-      description: inputMsg.value,
-      assignee: inputAssignee.value,
-      dueDate: inputDueDate.value,
-      status: inputStatus.value,
-    });
-  }
+  //} else {
+  // Save validated data in the to-do list container
+  toDoList.push({
+    // key : value  <==>  property : value
+    name: nameInput.value,
+    description: inputMsg.value,
+    assignee: inputAssignee.value,
+    dueDate: inputDueDate.value,
+    status: inputStatus.value,
+  });
 
   console.log(toDoList);
-
 });
 
 // console.log(nameInput.value);
@@ -89,3 +61,37 @@ saveBtn.addEventListener("click", function () {
 //    status: inputStatus.value
 
 // });
+
+// for editing title of columns
+
+//document.addEventListener("DOMContentLoaded", function () {
+  let currentColumn;
+
+  // Event listener for edit column buttons
+  document.querySelectorAll(".edit-column-btn").forEach((button) => {
+    button.addEventListener("click", function () {
+      currentColumn = this.closest(".task-list-items");
+      const title = currentColumn.querySelector("#column-title").innerText;
+
+      // Populate modal with current column title
+      document.getElementById("columnTitle").value = title;
+    });
+  });
+
+  // Event listener for the save changes button in the modal
+  document.getElementById('saveChangesBtn').addEventListener('click', function () {
+    const newTitle = document.getElementById('columnTitle').value;
+
+    // update the column title
+    if (currentColumn) {
+      currentColumn.querySelector('#column-title').innerText = newTitle;
+    }
+
+      // close the modal
+      const modal = bootstrap.Modal.getInstance(document.getElementsById('editColumnModal'));
+      modal.hide();
+    });
+//});
+
+
+
