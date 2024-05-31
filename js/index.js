@@ -30,20 +30,6 @@ saveBtn.addEventListener("click", function () {
   const dueDateValue = new Date(inputDueDate.value);
   const currentDate = new Date();
 
-<<<<<<< HEAD
-  //if (nameHasNumbers) {
-
-  //} else {
-  // Save validated data in the to-do list container
-  toDoList.push({
-    // key : value  <==>  property : value
-    name: nameInput.value,
-    description: inputMsg.value,
-    assignee: inputAssignee.value,
-    dueDate: inputDueDate.value,
-    status: inputStatus.value,
-  });
-=======
   // Check if the name contains numbers
   const nameHasNumbers = /\d/.test(nameValue) || nameValue.trim() === "";
 
@@ -60,33 +46,36 @@ saveBtn.addEventListener("click", function () {
   const validStatuses = ["To-Do", "In-Progress", "Done"];
   const statusIsInvalid = !validStatuses.includes(statusValue);
 
-  if (nameHasNumbers) {
-    alert("Task name should not contain numbers or be empty.");
-  } else if (descIsEmpty) {
-    alert("Description should not be empty.");
-  } else if (dueDateIsPast) {
-    alert("Due date should not be in the past.");
-  } else if (assigneeHasSpecialChars) {
-    alert("Assignee should not contain special characters.");
-  } else if (statusIsInvalid) {
-    alert(
-      'Status should be one of the predefined options: "To Do", "In Progress", or "Done".'
-    );
-  } else {
-    // Save validated data in the to-do list container
-    toDoList.push({
-      // key : value  <==>  property : value
-      name: nameInput.value,
-      description: inputMsg.value,
-      assignee: inputAssignee.value,
-      dueDate: inputDueDate.value,
-      status: inputStatus.value,
-    });
-  }
->>>>>>> edcd420d7b14fed201a9489cea1997f29d20c006
+   if (nameHasNumbers) {
+     alert("Task name should not contain numbers or be empty.");
+   } else if (descIsEmpty) {
+     alert("Description should not be empty.");
+   } else if (dueDateIsPast) {
+     alert("Due date should not be in the past.");
+   } else if (assigneeHasSpecialChars) {
+     alert("Assignee should not contain special characters.");
+   } else if (statusIsInvalid) {
+     alert(
+       'Status should be one of the predefined options: "To Do", "In Progress", or "Done".'
+     );
+   } else {
+     // Save validated data in the to-do list container
+     toDoList.push({
+       // key : value  <==>  property : value
+       name: nameInput.value,
+       description: inputMsg.value,
+       assignee: inputAssignee.value,
+       dueDate: inputDueDate.value,
+       status: inputStatus.value,
+     });
+   }
 
-  console.log(toDoList);
+   console.log(toDoList);
 });
+
+
+ 
+
 
 // console.log(nameInput.value);
 // console.log(inputMsg.value);
@@ -107,32 +96,32 @@ saveBtn.addEventListener("click", function () {
 // for editing title of columns
 
 //document.addEventListener("DOMContentLoaded", function () {
-  let currentColumn;
+  // let currentColumn;
 
-  // Event listener for edit column buttons
-  document.querySelectorAll(".edit-column-btn").forEach((button) => {
-    button.addEventListener("click", function () {
-      currentColumn = this.closest(".task-list-items");
-      const title = currentColumn.querySelector("#column-title").innerText;
+  // // Event listener for edit column buttons
+  // document.querySelectorAll(".edit-column-btn").forEach((button) => {
+  //   button.addEventListener("click", function () {
+  //     currentColumn = this.closest(".task-list-items");
+  //     const title = currentColumn.querySelector("#column-title").innerText;
 
-      // Populate modal with current column title
-      document.getElementById("columnTitle").value = title;
-    });
-  });
+  //     // Populate modal with current column title
+  //     document.getElementById("columnTitle").value = title;
+  //   });
+  // });
 
   // Event listener for the save changes button in the modal
-  document.getElementById('saveChangesBtn').addEventListener('click', function () {
-    const newTitle = document.getElementById('columnTitle').value;
+  //document.getElementById('saveChangesBtn').addEventListener('click', function () {
+    //const newTitle = document.getElementById('columnTitle').value;
 
     // update the column title
-    if (currentColumn) {
-      currentColumn.querySelector('#column-title').innerText = newTitle;
-    }
+   // if (currentColumn) {
+     // currentColumn.querySelector('#column-title').innerText = newTitle;
+   // }
 
       // close the modal
-      const modal = bootstrap.Modal.getInstance(document.getElementsById('editColumnModal'));
-      modal.hide();
-    });
+     // const modal = bootstrap.Modal.getInstance(document.getElementsById('editColumnModal'));
+      //modal.hide();
+    //});
 //});
 
 
