@@ -30,6 +30,7 @@ saveBtn.addEventListener("click", function () {
   const dueDateValue = new Date(inputDueDate.value);
   const currentDate = new Date();
 
+<<<<<<< HEAD
   //if (nameHasNumbers) {
 
   //} else {
@@ -42,6 +43,47 @@ saveBtn.addEventListener("click", function () {
     dueDate: inputDueDate.value,
     status: inputStatus.value,
   });
+=======
+  // Check if the name contains numbers
+  const nameHasNumbers = /\d/.test(nameValue) || nameValue.trim() === "";
+
+  // Check if the description is empty
+  const descIsEmpty = descValue.trim() === "";
+
+  // Check if the due date is in the past
+  const dueDateIsPast = dueDateValue < currentDate;
+
+  // Check if the assignee contains special characters
+  const assigneeHasSpecialChars = /[^a-zA-Z\s]/.test(assigneeValue);
+
+  // Check if the status is one of the predefined options
+  const validStatuses = ["To-Do", "In-Progress", "Done"];
+  const statusIsInvalid = !validStatuses.includes(statusValue);
+
+  if (nameHasNumbers) {
+    alert("Task name should not contain numbers or be empty.");
+  } else if (descIsEmpty) {
+    alert("Description should not be empty.");
+  } else if (dueDateIsPast) {
+    alert("Due date should not be in the past.");
+  } else if (assigneeHasSpecialChars) {
+    alert("Assignee should not contain special characters.");
+  } else if (statusIsInvalid) {
+    alert(
+      'Status should be one of the predefined options: "To Do", "In Progress", or "Done".'
+    );
+  } else {
+    // Save validated data in the to-do list container
+    toDoList.push({
+      // key : value  <==>  property : value
+      name: nameInput.value,
+      description: inputMsg.value,
+      assignee: inputAssignee.value,
+      dueDate: inputDueDate.value,
+      status: inputStatus.value,
+    });
+  }
+>>>>>>> edcd420d7b14fed201a9489cea1997f29d20c006
 
   console.log(toDoList);
 });

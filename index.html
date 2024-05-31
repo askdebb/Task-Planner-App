@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Task Planner</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container bg-warning w-50 p-4 mt-3 rounded">
+        <form action="" method="POST">
+            <h1 class="text-center">Task Planner App</h1>
+           
+              <label for="task-name" class="form-label">Name</label>  <br>
+              <input type="text" class="form-control" id="task-name" aria-describedby="emailHelp">  <br>
+              <!-- <div id="nameHelp" class="form-text">Please enter the task name.</div><br> -->
+          
+         
+              <label for="task-desc" class="form-label">Description</label>  <br>
+              <textarea type="text" name="description" class="form-control" id="task-desc" placeholder="Type items here...."></textarea>  <br>
+          
+           
+              <label for="assignee" class="form-label">Assigned To</label>  <br>
+              <input type="text" class="form-control" id="assignee" placeholder="Enter name here...">  <br>
+           
+        
+              <label for="due-date" class="form-label">DueDate:</label>  <br>
+              <input type="date" class="form-control" id="due-date"><br>
+        
+       
+              <label for="status-code" class="form-label">Status</label>  
+              <select name="status-code" id="status-code" class="form-control"> 
+                <option value="To-Do">To Do</option>
+                <option value="In-Progress">In Progress</option>
+                <option value="Done">Done</option>
+              </select> <br>
+
+            <button type="submit" class="btn btn-primary" id="task-save-btn">Save</button>
+        </form>
+
+      </div>
+
+      <!-- task list component -->
+     <div class="container task-list-section bg-primary mt-5 d-flex justify-content-evenly" id="task-list">
+        <div class="task-list-items bg-info text-white m-3 p-3">
+            <h2 class="text-center">To Do</h2>
+            <div class="card mt-2" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Morning Practice</h5>
+                <hr/>
+                <h6 class="sub-title">Description</h6>
+                <p class="card-text">Sweep, meditate, eat and Pray </p>
+              </div>
+              <ul class="list-group list-group-flush">
+               
+                <li class="list-group-item"> 
+                  <div class="hstack gap-3">
+                  <div class="p-2 sub-title">AssignedTo
+                    <p>Maria</p>
+                  </div>
+                  <div class="p-2 sub-title">Due Date
+                    <p>27/05/2024</p>
+                  </div>
+                </div>
+              </li>
+                <li class="list-group-item">Status: <span>To do</span></li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="btn btn-success">Update</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+              </div>
+            </div> 
+             <div class="card mt-2" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Sending Emails</h5>
+                <hr/>
+                <h6 class="sub-title">Description</h6>
+                <p class="card-text">Sending email to clients</p>
+              </div>
+              <ul class="list-group list-group-flush">
+               
+                <li class="list-group-item"> 
+                  <div class="hstack gap-3">
+                  <div class="p-2 sub-title">AssignedTo
+                    <p>Chris</p>
+                  </div>
+                  <div class="p-2 sub-title">Due Date
+                    <p>28/05/2024</p>
+                  </div>
+                </div>
+              </li>
+                <li class="list-group-item">Status: <span>To do</span></li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="btn btn-success">Update</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+              </div>
+            </div> 
+        </div>
+        <div class="task-list-items bg-warning text-white m-3 p-3">
+            <h2 class="text-center">In-Progress</h2>
+            <div class="card mt-2" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Teams Meeting</h5>
+                <hr/>
+                <h6 class="sub-title">Description</h6>
+                <p class="card-text">Teams meeting with team 3 members for app task project.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+               
+                <li class="list-group-item"> 
+                  <div class="hstack gap-3">
+                  <div class="p-2 sub-title">AssignedTo
+                    <p>Victoria</p>
+                  </div>
+                  <div class="p-2 sub-title">Due Date
+                    <p>27/05/2024</p>
+                  </div>
+                </div>
+              </li>
+                <li class="list-group-item">Status: <span>In Progress</span></li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="btn btn-success">Done</a>
+              </div>
+            </div> 
+            
+     
+              <div class="card mt-2" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Update Client List</h5>
+                  <hr/>
+                  <h6 class="sub-title">Description</h6>
+                  <p class="card-text">Add new clients to clients list.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                 
+                  <li class="list-group-item"> 
+                    <div class="hstack gap-3">
+                    <div class="p-2 sub-title">AssignedTo
+                      <p>Caroline</p>
+                    </div>
+                    <div class="p-2 sub-title">Due Date
+                      <p>28/05/2024</p>
+                    </div>
+                  </div>
+                </li>
+                  <li class="list-group-item">Status: <span>In Progress</span></li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="btn btn-success">Done</a>
+                </div>
+              </div> 
+
+        </div>
+        <div class="task-list-items bg-success text-white m-3 p-3">
+            <h2 class="text-center">Done</h2>
+            <div class="card mt-2" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Called Clients</h5>
+                <hr/>
+                <h6 class="sub-title">Description</h6>
+                <p class="card-text">Call Clients.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+               
+                <li class="list-group-item"> 
+                  <div class="hstack gap-3">
+                  <div class="p-2 sub-title">AssignedTo
+                    <p>Caroline</p>
+                  </div>
+                  <div class="p-2 sub-title">Due Date
+                    <p>28/05/2024</p>
+                  </div>
+                </div>
+              </li>
+                <li class="list-group-item">Status: <span>Done</span></li>
+              </ul>
+              
+            </div> 
+        </div>
+       
+        
+     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="./js/taskManager.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html> 
