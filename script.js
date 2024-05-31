@@ -31,7 +31,7 @@ saveBtn.addEventListener("click", function () {
     const currentDate = new Date();
 
   // Check if the name contains numbers
-  const nameHasNumbers = /\d/.test(nameValue);
+  const nameHasNumbers = /\d/.test(nameValue) || nameValue.trim() === "";
 
   // Check if the description is empty
   const descIsEmpty = descValue.trim() === "";
@@ -47,7 +47,7 @@ saveBtn.addEventListener("click", function () {
   const statusIsInvalid = !validStatuses.includes(statusValue);
 
   if (nameHasNumbers) {
-    alert("Task name should not contain numbers.");
+    alert("Task name should not contain numbers or be empty.");
   } else if (descIsEmpty) {
     alert("Description should not be empty.");
   } else if (dueDateIsPast) {
