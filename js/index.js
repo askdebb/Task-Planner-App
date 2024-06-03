@@ -1,3 +1,4 @@
+import { TaskManager } from "./taskManager.js";
 let toDoList = [];
 
 // name field
@@ -30,6 +31,9 @@ saveBtn.addEventListener("click", function () {
   const dueDateValue = new Date(inputDueDate.value);
   const currentDate = new Date();
 
+
+
+
   // Check if the name contains numbers
   const nameHasNumbers = /\d/.test(nameValue) || nameValue.trim() === "";
 
@@ -60,17 +64,12 @@ saveBtn.addEventListener("click", function () {
      );
    } else {
      // Save validated data in the to-do list container
-     toDoList.push({
-       // key : value  <==>  property : value
-       name: nameInput.value,
-       description: inputMsg.value,
-       assignee: inputAssignee.value,
-       dueDate: inputDueDate.value,
-       status: inputStatus.value,
-     });
+     
+     const taskManager = new TaskManager();
+     taskManager.addTask(nameInput.value, inputMsg.value, inputAssignee.value, inputDueDate.value, inputStatus.value);
    }
 
-   console.log(toDoList);
+   console.log(taskManager);
 });
 
 
