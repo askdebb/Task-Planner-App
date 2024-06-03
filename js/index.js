@@ -1,3 +1,4 @@
+// const taskManagerClass = require('./taskManager.js')
 import { TaskManager } from "./taskManager.js";
 let toDoList = [];
 
@@ -22,7 +23,12 @@ const inputStatus = document.getElementById("status-code");
 // submit button
 const saveBtn = document.getElementById("task-save-btn");
 
+
+//to-do column
+const todoContainer = document.getElementById('to-do');
+
 saveBtn.addEventListener("click", function () {
+  event.preventDefault();
   //Validation logic
   const nameValue = nameInput.value;
   const descValue = inputMsg.value;
@@ -67,9 +73,18 @@ saveBtn.addEventListener("click", function () {
      
      const taskManager = new TaskManager();
      taskManager.addTask(nameInput.value, inputMsg.value, inputAssignee.value, inputDueDate.value, inputStatus.value);
+
+     
+
+     todoContainer.append(taskManager);
+
+     console.log(taskManager);
+
+     toDoList.push(taskManager);
    }
 
-   console.log(taskManager);
+   console.log(toDoList);
+
 });
 
 

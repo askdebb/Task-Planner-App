@@ -1,4 +1,4 @@
- class TaskManager {
+export class TaskManager {
     constructor(currentId = 0) {
       this.currentId = currentId;
       this.tasks = [];
@@ -15,14 +15,21 @@
       status: status
     });
   }
+
+
+  
+
+
+
+
 }
-  const task = new TaskManager();
+  // const task = new TaskManager();
 
-  task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
-  task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
-  task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
+  // task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
+  // task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
+  // task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
 
-  console.log(task.tasks)
+  // console.log(task.tasks)
 
 
 
@@ -40,4 +47,4 @@
 //   dueDateInput.value = '';
 // });
 
-module.exports= {TaskManager}
+// module.exports= {TaskManager}
