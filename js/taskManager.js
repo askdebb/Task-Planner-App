@@ -16,20 +16,24 @@ export class TaskManager {
     });
   }
 
-
+  removeTask (task_item) {
+    this.tasks = this.tasks.filter(function(item){
+      return item != task_item; 
+  });
+  }
   
 
 
 
 
 }
-  // const task = new TaskManager();
+  const task = new TaskManager();
 
-  // task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
-  // task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
-  // task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
+  task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
+  task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
+  task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
 
-  // console.log(task.tasks)
+  console.log(task.tasks)
 
 
 
