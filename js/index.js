@@ -71,17 +71,60 @@ saveBtn.addEventListener("click", function () {
      const taskManager = new TaskManager();
      taskManager.addTask(nameInput.value, inputMsg.value, inputAssignee.value, inputDueDate.value, inputStatus.value);
 
+
     taskItem = JSON.stringify(taskManager);
     localStorage.setItem("item", taskItem);
 
-    //  toDoList.push(this.tasks);
+
+     
+
+    //  todoContainer.append(taskManager);
+
+     console.log(taskManager);
+
+    //  toDoList.push(taskManager.tasks);
+    let listing = taskManager.tasks
+     displayTask(listing);
+
    }
 
-   console.log(toDoList);
+   console.log(listing);
+  // for(let i = 0; i < toDoList.length; i++){
+  //   let todoTemplate = 
+  //    `<div class="card" style="width:18rem";>
+  //                       <div class="card-title"> 
+  //                           <h3> ${toDoList[i].name}</h3>
+  //                       </div>
+  //                       <div class="card-body">
+  //                         <ul>
+  //                             <li>${toDoList.description}</li>
+  //                         </ul>
+  //                       </div>
+  //                   </div>`;
+
+  //                   todoContainer.innerHTML = todoTemplate;
+  // }
+
+
+ 
+  
 
    let storedUsers = localStorageHere();
 
 });
+
+let displayTask = (listing) => {
+  let jsonTemplate = '';
+  jsonTemplate = `<ul class="list-group">
+                      <li class="list-group-item">ID: ${listing.id}</li>
+                      <li class="list-group-item">BRAND: ${listing.name}</li>
+                      <li class="list-group-item">cOLOR: ${listing.description}</li>
+                      <li class="list-group-item">PRICE: ${listing.dueDate}</li>
+                  </ul>`;
+
+  todoContainer.innerHTML = jsonTemplate;
+}
+
 
 function localStorageHere() {
   let userHere = localStorage.getItem("item");
