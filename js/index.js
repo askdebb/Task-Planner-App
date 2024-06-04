@@ -37,9 +37,6 @@ saveBtn.addEventListener("click", function () {
   const dueDateValue = new Date(inputDueDate.value);
   const currentDate = new Date();
 
-
-
-
   // Check if the name contains numbers
   const nameHasNumbers = /\d/.test(nameValue) || nameValue.trim() === "";
 
@@ -74,6 +71,11 @@ saveBtn.addEventListener("click", function () {
      const taskManager = new TaskManager();
      taskManager.addTask(nameInput.value, inputMsg.value, inputAssignee.value, inputDueDate.value, inputStatus.value);
 
+
+    taskItem = JSON.stringify(taskManager);
+    localStorage.setItem("item", taskItem);
+
+
      
 
     //  todoContainer.append(taskManager);
@@ -83,6 +85,7 @@ saveBtn.addEventListener("click", function () {
     //  toDoList.push(taskManager.tasks);
     let listing = taskManager.tasks
      displayTask(listing);
+
    }
 
    console.log(listing);
@@ -106,6 +109,8 @@ saveBtn.addEventListener("click", function () {
  
   
 
+   let storedUsers = localStorageHere();
+
 });
 
 let displayTask = (listing) => {
@@ -120,6 +125,12 @@ let displayTask = (listing) => {
   todoContainer.innerHTML = jsonTemplate;
 }
 
+
+function localStorageHere() {
+  let userHere = localStorage.getItem("item");
+  userHere = JSON.parse(userHere);
+  return userHere
+}
  
 
 
