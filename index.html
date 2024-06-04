@@ -35,6 +35,7 @@
               <select name="status-code" id="status-code" class="form-control"> 
                 <option value="To-Do">To Do</option>
                 <option value="In-Progress">In Progress</option>
+                <option value="Review">Review</option>
                 <option value="Done">Done</option>
               </select> <br>
 
@@ -44,10 +45,10 @@
       </div>
 
       <!-- task list component -->
-     <div class="container task-list-section bg-primary mt-5 d-flex justify-content-evenly" id="task-list">
-        <div class="task-list-items bg-info text-white m-3 p-3" id="to-do">
+     <div class="container task-list-section bg-primary w-100vw mt-5 mx-auto d-flex justify-content-around" id="task-list">
+        <div class="task-list-items bg-secondary text-white m-3 p-3" id="to-do">
             <h2 class="text-center">To Do</h2>
-            <!-- <div class="card mt-2" style="width: 18rem;">
+             <div class="card mt-2" style="width: 15rem;"> 
               <div class="card-body">
                 <h5 class="card-title">Morning Practice</h5>
                 <hr/>
@@ -73,7 +74,7 @@
                 <a href="#" class="btn btn-danger">Delete</a>
               </div>
             </div> 
-             <div class="card mt-2" style="width: 18rem;">
+             <div class="card mt-2" style="width: 15rem;">
               <div class="card-body">
                 <h5 class="card-title">Sending Emails</h5>
                 <hr/>
@@ -98,11 +99,11 @@
                 <a href="#" class="btn btn-success">Update</a>
                 <a href="#" class="btn btn-danger">Delete</a>
               </div>
-            </div>  -->
+            </div> 
         </div>
         <div class="task-list-items bg-warning text-white m-3 p-3">
             <h2 class="text-center">In-Progress</h2>
-            <div class="card mt-2" style="width: 18rem;">
+            <div class="card mt-2" style="width: 15rem;">
               <div class="card-body">
                 <h5 class="card-title">Teams Meeting</h5>
                 <hr/>
@@ -129,7 +130,7 @@
             </div> 
             
      
-              <div class="card mt-2" style="width: 18rem;">
+              <div class="card mt-2" style="width: 15rem;">
                 <div class="card-body">
                   <h5 class="card-title">Update Client List</h5>
                   <hr/>
@@ -156,9 +157,65 @@
               </div> 
 
         </div>
+        <div class="task-list-items bg-info text-white m-3 p-3">
+            <h2 class="text-center">Review</h2>
+            <div class="card mt-2" style="width: 15rem;">
+              <div class="card-body">
+                <h5 class="card-title">Teams Meeting</h5>
+                <hr/>
+                <h6 class="sub-title">Description</h6>
+                <p class="card-text">Teams meeting with team 3 members for app task project.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+               
+                <li class="list-group-item"> 
+                  <div class="hstack gap-3">
+                  <div class="p-2 sub-title">AssignedTo
+                    <p>Victoria</p>
+                  </div>
+                  <div class="p-2 sub-title">Due Date
+                    <p>27/05/2024</p>
+                  </div>
+                </div>
+              </li>
+                <li class="list-group-item">Status: <span>Review</span></li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="btn btn-success">Done</a>
+              </div>
+            </div> 
+            
+     
+              <div class="card mt-2" style="width: 15rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Update Client List</h5>
+                  <hr/>
+                  <h6 class="sub-title">Description</h6>
+                  <p class="card-text">Add new clients to clients list.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                 
+                  <li class="list-group-item"> 
+                    <div class="hstack gap-3">
+                    <div class="p-2 sub-title">AssignedTo
+                      <p>Caroline</p>
+                    </div>
+                    <div class="p-2 sub-title">Due Date
+                      <p>28/05/2024</p>
+                    </div>
+                  </div>
+                </li>
+                  <li class="list-group-item">Status: <span>Review</span></li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="btn btn-success">Done</a>
+                </div>
+              </div> 
+
+        </div>
         <div class="task-list-items bg-success text-white m-3 p-3">
             <h2 class="text-center">Done</h2>
-            <div class="card mt-2" style="width: 18rem;">
+            <div class="card mt-2" style="width: 15rem;">
               <div class="card-body">
                 <h5 class="card-title">Called Clients</h5>
                 <hr/>
