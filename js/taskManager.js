@@ -1,7 +1,7 @@
 export class TaskManager {
-    constructor(tasks = []) {
+    constructor() {
       this.currentId = localStorage.getItem("currentId") || 0;
-      this.tasks = tasks || [];
+      this.tasks = [];
       const savedTasks = localStorage.getItem("tasks");
       if(savedTasks){
         this.tasks = JSON.parse(savedTasks);
@@ -29,14 +29,23 @@ export class TaskManager {
 
 
   update_list() {
-    const taskList = document.getElementById("to-do");
-    taskList.innerHTML = ""; // Clear previous list items
     for (const task of this.tasks) {
-      const listItem = document.createElement("li");
-      listItem.innerHTML = `<b>${task.name}</b> - ${task.description}`;
-      taskList.appendChild(listItem);
-    }
+      if(task.status === 'To-Do') {
+        todoRender(task);
+      } else if (task.status === 'In-Progress') {
+        inProgressRender(task)
+      } else if (task.status === 'Review') {
+        review(task)
+      } else {
+
+      }
+    //   const listItem = document.createElement("li");
+    //   listItem.innerHTML = `<b>${task.name}</b> - ${task.description}`;
+    //   taskList.appendChild(listItem);
+    // }
   }
+
+
   
 
   // removeTask (task_item) {
@@ -46,6 +55,98 @@ export class TaskManager {
   // }
   
 }
+}
+
+function todoRender(task) {
+  const toDoComponent = document.getElementById("to-do");
+  toDoComponent.innerHTML = ""; // Clear previous list items
+  toDoComponent.innerHTML = `<div class="card mt-2" style="width: 15rem;"> 
+                                <div class="card-body">
+                                  <h5 class="card-title text-center">${task.name}</h5>
+                                  <hr/>
+                                  <h6 class="sub-title">Description</h6>
+                                  <p class="card-text">${task.description}</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                
+                                  <li class="list-group-item"> 
+                                    <div class="hstack gap-3">
+                                    <div class="p-1 sub-title">AssignedTo
+                                      <p>${task.assignedTo}</p>
+                                    </div>
+                                    <div class="p-1 sub-title">Due Date
+                                      <p>${task.dueDate}</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                  <li class="list-group-item">Status: <span>${task.status}</span></li>
+                                </ul>
+                                <div class="card-body">
+                                  <a href="#" class="btn btn-secondary">Update</a>
+                                  <a href="#" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div> `
+};
+
+function inProgressRender(task) {
+  const toDoComponent = document.getElementById("in-progress");
+  toDoComponent.innerHTML = ""; // Clear previous list items
+  toDoComponent.innerHTML = `<div class="card mt-2" style="width: 15rem;"> 
+                                <div class="card-body">
+                                  <h5 class="card-title text-center">${task.name}</h5>
+                                  <hr/>
+                                  <h6 class="sub-title">Description</h6>
+                                  <p class="card-text">${task.description}</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                
+                                  <li class="list-group-item"> 
+                                    <div class="hstack gap-3">
+                                    <div class="p-1 sub-title">AssignedTo
+                                      <p>${task.assignedTo}</p>
+                                    </div>
+                                    <div class="p-1 sub-title">Due Date
+                                      <p>${task.dueDate}</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                  <li class="list-group-item">Status: <span>${task.status}</span></li>
+                                </ul>
+                                <div class="card-body">
+                                  <a href="#" class="btn btn-warning">Update</a>
+                                </div>
+                            </div> `
+};
+function review(task) {
+  const toDoComponent = document.getElementById("review");
+  toDoComponent.innerHTML = ""; // Clear previous list items
+  toDoComponent.innerHTML = `<div class="card mt-2" style="width: 15rem;"> 
+                                <div class="card-body">
+                                  <h5 class="card-title text-center">${task.name}</h5>
+                                  <hr/>
+                                  <h6 class="sub-title">Description</h6>
+                                  <p class="card-text">${task.description}</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                
+                                  <li class="list-group-item"> 
+                                    <div class="hstack gap-3">
+                                    <div class="p-1 sub-title">AssignedTo
+                                      <p>${task.assignedTo}</p>
+                                    </div>
+                                    <div class="p-1 sub-title">Due Date
+                                      <p>${task.dueDate}</p>
+                                    </div>
+                                  </div>
+                                </li>
+                                  <li class="list-group-item">Status: <span>${task.status}</span></li>
+                                </ul>
+                                <div class="card-body">
+                                  <a href="#" class="btn btn-info">Done?</a>
+                                </div>
+                            </div> `
+};
+
   // const task = new TaskManager();
 
   // task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );

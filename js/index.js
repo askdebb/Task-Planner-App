@@ -31,6 +31,7 @@ saveBtn.addEventListener("click", save );
 
 const taskManager = new TaskManager();
 
+
 function save() {
   event.preventDefault();
   //Validation logic
@@ -38,11 +39,14 @@ function save() {
   const descValue = inputMsg.value;
   const assigneeValue = inputAssignee.value;
   const statusValue = inputStatus.value;
-  const dueDateValue = new Date(inputDueDate.value);
+  const dueDateValue = new Date();
+  const theTaskDate = theDueDate(dueDateValue);
+
+ 
   
 
-  validateAndAcceptInput(nameValue, descValue, assigneeValue, dueDateValue, statusValue);
-  taskManager.addTask(nameValue, descValue, assigneeValue, dueDateValue, statusValue);
+  validateAndAcceptInput(nameValue, descValue, assigneeValue, theTaskDate, statusValue);
+  taskManager.addTask(nameValue, descValue, assigneeValue, theTaskDate, statusValue);
   taskManager.update_list();
   //  console.log(toDoList);
 
@@ -83,9 +87,26 @@ function validateAndAcceptInput(nameInfo, descInfo,assigneeInfo, dueDateInfo, st
     } else {
       // Save validated data in the to-do list container    
       
-      // saveBtn.reset();
+      
     }
 
+}
+
+function theDueDate(dueDateValue){
+  // Get the current year
+const year = dueDateValue.getFullYear();
+
+// Get the current month (0-indexed)
+const month = dueDateValue.getMonth() + 1; // Adjust for 0-based indexing
+
+// Get the current day of the month
+const day = dueDateValue.getDate();
+
+// Format the date as YYYY-MM-DD
+const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+
+return formattedDate;
+// console.log(formattedDate); // Output: 2024-06-06 (assuming today is June 6th, 2024)
 }
 
 
