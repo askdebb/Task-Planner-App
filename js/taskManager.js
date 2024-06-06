@@ -1,4 +1,4 @@
-export class TaskManager {
+class TaskManager {
     constructor() {
       this.currentId = localStorage.getItem("currentId") || 0;
       this.tasks = [];
@@ -176,3 +176,5 @@ function review(task) {
 // });
 
 // module.exports= {TaskManager}
+
+export default TaskManager

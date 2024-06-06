@@ -1,5 +1,5 @@
 // const taskManagerClass = require('./taskManager.js')
-import { TaskManager } from "./taskManager.js";
+import  TaskManager  from "./taskManager.js";
 let toDoList = [];
 
 // name field
