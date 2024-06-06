@@ -27,7 +27,11 @@ const saveBtn = document.getElementById("task-save-btn");
 //to-do column
 const todoContainer = document.getElementById('to-do');
 
-saveBtn.addEventListener("click", function () {
+saveBtn.addEventListener("click", save );
+
+const taskManager = new TaskManager();
+
+function save() {
   event.preventDefault();
   //Validation logic
   const nameValue = nameInput.value;
@@ -35,59 +39,54 @@ saveBtn.addEventListener("click", function () {
   const assigneeValue = inputAssignee.value;
   const statusValue = inputStatus.value;
   const dueDateValue = new Date(inputDueDate.value);
-  const currentDate = new Date();
+  
 
-  // Check if the name contains numbers
-  const nameHasNumbers = /\d/.test(nameValue) || nameValue.trim() === "";
+  validateAndAcceptInput(nameValue, descValue, assigneeValue, dueDateValue, statusValue);
+  taskManager.addTask(nameValue, descValue, assigneeValue, dueDateValue, statusValue);
+  taskManager.update_list();
+  //  console.log(toDoList);
 
-  // Check if the description is empty
-  const descIsEmpty = descValue.trim() === "";
+}
 
-  // Check if the due date is in the past
-  const dueDateIsPast = dueDateValue < currentDate;
+function validateAndAcceptInput(nameInfo, descInfo,assigneeInfo, dueDateInfo, statusInfo){
+   // Check if the name contains numbers
+   const nameHasNumbers = /\d/.test(nameInfo) || nameInfo.trim() === "";
 
-  // Check if the assignee contains special characters
-  const assigneeHasSpecialChars = /[^a-zA-Z\s]/.test(assigneeValue);
+   // Check if the description is empty
+   const descIsEmpty = descInfo.trim() === "";
 
-  // Check if the status is one of the predefined options
-  const validStatuses = ["To-Do", "In-Progress", "Done"];
-  const statusIsInvalid = !validStatuses.includes(statusValue);
+   // Check if the assignee contains special characters
+   const assigneeHasSpecialChars = /[^a-zA-Z\s]/.test(assigneeInfo);
+ 
+   // Check if the due date is in the past
+   const currentDate = new Date();
+   const dueDateIsPast = dueDateInfo < currentDate;
+ 
+   
+ 
+   // Check if the status is one of the predefined options
+   const validStatuses = ["To-Do", "In-Progress","Review", "Done"];
+   const statusIsInvalid = !validStatuses.includes(statusInfo);
+ 
+    if (nameHasNumbers) {
+      alert("Task name should not contain numbers or be empty.");
+    } else if (descIsEmpty) {
+      alert("Description should not be empty.");
+    } else if (dueDateIsPast) {
+      alert("Due date should not be in the past.");
+    } else if (assigneeHasSpecialChars) {
+      alert("Assignee should not contain special characters.");
+    } else if (statusIsInvalid) {
+      alert(
+        'Status should be one of the predefined options: "To Do", "In Progress","Review", or "Done".'
+      );
+    } else {
+      // Save validated data in the to-do list container    
+      
+      // saveBtn.reset();
+    }
 
-   if (nameHasNumbers) {
-     alert("Task name should not contain numbers or be empty.");
-   } else if (descIsEmpty) {
-     alert("Description should not be empty.");
-   } else if (dueDateIsPast) {
-     alert("Due date should not be in the past.");
-   } else if (assigneeHasSpecialChars) {
-     alert("Assignee should not contain special characters.");
-   } else if (statusIsInvalid) {
-     alert(
-       'Status should be one of the predefined options: "To Do", "In Progress", or "Done".'
-     );
-   } else {
-     // Save validated data in the to-do list container
-     
-     const taskManager = new TaskManager();
-     taskManager.addTask(nameInput.value, inputMsg.value, inputAssignee.value, inputDueDate.value, inputStatus.value);
-     
-
-     let toJson = taskManager.tasks
-     let tasksStringed = JSON.stringify(toJson);
-
-     let saveToDo = localStorage.setItem("todoItems", tasksStringed)
-
-     console.log(saveToDo);
-    toDoList.push(saveToDo);
-
-   }
-
-   console.log(toDoList);
-
-});
-
-
-
+}
 
 
 // console.log(nameInput.value);
