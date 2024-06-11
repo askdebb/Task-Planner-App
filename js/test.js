@@ -1,5 +1,6 @@
-@jest-environment jsdom
-
+/**
+ * @jest-environment jsdom
+ */
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, screen } from '@testing-library/dom';
 import TaskManager from './taskManager.js';
