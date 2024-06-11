@@ -7,6 +7,7 @@ A simple task management application that allows users to add tasks, mark them a
 - Add new tasks with details such as task name, description, assignee, due date, and status.
 - Update tasks
 - Mark tasks as done.
+- Delete tasks that are not needed
 - View tasks categorized into different statuses: To-Do, In-Progress, Review, and Done.
 
 ## Technologies Used
@@ -16,6 +17,16 @@ A simple task management application that allows users to add tasks, mark them a
 - JavaScript
 
 ## Getting Started
+
+To use the task planner app:
+
+1. Instructions on how to install or access the application:
+    - Access the Website: Visit [https://askdebb.github.io/team3-Task-Planner-App/] in your browser.
+2. Provide any necessary login credentials or access instructions:
+    <!-- - Sign Up / Log In: Create an account or log in -->
+    - Explore Your Dashboard: Familiarize yourself with the task columns.
+    - Add Tasks: Click "Add Task" to fill in task details and start organizing.
+
 
 ### Prerequisites
 
@@ -50,11 +61,16 @@ A simple task management application that allows users to add tasks, mark them a
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+
 ### Acknowledgments
 
   TEAM MEMBERS
 - Christopher Wiafe Debrah
-- 
+- Caroline Aryeetey
+- Maria Arthur Gyamfi
+- Victoria Adeku
+- Angela Amuzu
+- Linda Maame Serwaa Adu Frimpong
 
 
 
