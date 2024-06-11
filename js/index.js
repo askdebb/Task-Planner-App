@@ -42,9 +42,6 @@ function save() {
   const dueDateValue = new Date();
   const theTaskDate = theDueDate(dueDateValue);
 
- 
-  
-
   validateAndAcceptInput(nameValue, descValue, assigneeValue, theTaskDate, statusValue);
   taskManager.addTask(nameValue, descValue, assigneeValue, theTaskDate, statusValue);
   taskManager.update_list();
@@ -73,17 +70,22 @@ function validateAndAcceptInput(nameInfo, descInfo,assigneeInfo, dueDateInfo, st
    const statusIsInvalid = !validStatuses.includes(statusInfo);
  
     if (nameHasNumbers) {
-      alert("Task name should not contain numbers or be empty.");
+      appendAlert("Task name should not contain numbers or be empty.");
+      // alert("Task name should not contain numbers or be empty.");
     } else if (descIsEmpty) {
-      alert("Description should not be empty.");
+      appendAlert("Description should not be empty.");
+      // alert("Description should not be empty.");
     } else if (dueDateIsPast) {
-      alert("Due date should not be in the past.");
+      appendAlert("Due date should not be in the past.");
+      // alert("Due date should not be in the past.");
     } else if (assigneeHasSpecialChars) {
-      alert("Assignee should not contain special characters.");
+      appendAlert("Assignee should not contain special characters.");
+      // alert("Assignee should not contain special characters.");
     } else if (statusIsInvalid) {
-      alert(
-        'Status should be one of the predefined options: "To Do", "In Progress","Review", or "Done".'
-      );
+      appendAlert('Status should be one of the predefined options: "To Do", "In Progress","Review", or "Done".');
+      // alert(
+      //   'Status should be one of the predefined options: "To Do", "In Progress","Review", or "Done".'
+      // );
     } else {
       // Save validated data in the to-do list container    
       
@@ -156,6 +158,33 @@ return formattedDate;
       //modal.hide();
     //});
 //});
+
+
+  const appendAlert = (message) => {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+      `<div class="alert alert-danger alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      '</div>'
+    ].join('')
+  
+    alertPlaceholder.append(wrapper)
+
+    if (alertTrigger) {
+      alertTrigger.addEventListener('click', () => {
+        appendAlert(message, 'danger')
+      })
+    }
+    
+  }
+
+  
+  
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+const alertTrigger = document.querySelector('.liveAlertBtn')
+
 
 
 
