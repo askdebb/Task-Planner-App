@@ -153,14 +153,3 @@ document.addEventListener("DOMContentLoaded", () => {
   taskManager.update_list(); // This will load and render tasks from localStorage
 });
 
-// const task = new TaskManager();
-
-// task.addTask('Shopping List', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
-// task.addTask('Shopping cart', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
-// task.addTask('Shopping doom', 'Create Christmas shopping list', 'Agya Christopher', '6/10/2024', 'To-Do' );
-
-// console.log(task.tasks)
-
-// task.removeTask('Shopping cart');
-
-// console.log(task.tasks)
