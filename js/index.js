@@ -153,7 +153,7 @@ function save(event) {
 
 function validateAndAcceptInput(name, description, assignedTo, dueDate, status) {
     if (!name || !description || !assignedTo || !dueDate || !status) {
-        alert("All fields are required.");
+      appendAlert("All fields are required.");
         return false;
     }
     // Further validation logic can be added here
