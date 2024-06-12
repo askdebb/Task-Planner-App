@@ -94,7 +94,7 @@
 
     if (alertTrigger) {
       alertTrigger.addEventListener('click', () => {
-        appendAlert(message, 'danger')
+        appendAlert("All fields are required.", 'danger')
       })
     }
     
@@ -153,7 +153,7 @@ function save(event) {
 
 function validateAndAcceptInput(name, description, assignedTo, dueDate, status) {
     if (!name || !description || !assignedTo || !dueDate || !status) {
-      appendAlert("All fields are required.");
+        alert("All fields are required.");
         return false;
     }
     // Further validation logic can be added here
