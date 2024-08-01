@@ -116,7 +116,7 @@ function renderTaskHTML(task) {
   } else if (task.status === "Review") {
     actionButtons = `<a href="#" class="btn btn-info btn-update" data-task-id="${task.id}">Update</a>`;
   } else if (task.status === "Done") {
-    actionButtons = `<a href="#" class="btn btn-success btn-update" data-task-id="${task.id}">Done</a>`;
+    actionButtons = `<a href="#" class="btn btn-success btn-update disabled" data-task-id="${task.id}">Done</a>`;
   }
 
   return `
